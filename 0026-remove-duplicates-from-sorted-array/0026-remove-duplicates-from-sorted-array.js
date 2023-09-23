@@ -4,11 +4,21 @@
  */
 var removeDuplicates = function(nums) {
     let uniqueArr = [...new Set(nums)]
-    let i = 0
-    for (i; i < nums.length ;i++) {
+    let uniqueLen = uniqueArr.length
+    let numsLen = nums.length
+    
+    // this should be a faster way to copy diff lengthed arrays...
+    for (let i = 0; i < numsLen ;i++) {
         nums[i] = uniqueArr[i]
     }
-    nums.splice(uniqueArr.length,Number.MAX_SAFE_INTEGER)
+    nums.splice(uniqueLen,numsLen-uniqueLen)
     
-    return i+1;
+    return uniqueLen;
+    
+    // OLD RELIABLE
+    // let uniqueArr = [...new Set(nums)]
+    // nums.forEach((_, i) => {
+    //     nums[i] = uniqueArr[i]
+    // })
+    // return uniqueArr.length
 };  
