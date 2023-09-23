@@ -4,8 +4,11 @@
  */
 var removeDuplicates = function(nums) {
     let uniqueArr = [...new Set(nums)]
-    nums.forEach((_, i) => {
+    let i = 0
+    for (i; i < nums.length ;i++) {
         nums[i] = uniqueArr[i]
-    })
-    return uniqueArr.length
+    }
+    nums.splice(uniqueArr.length,Number.MAX_SAFE_INTEGER)
+    
+    return i+1;
 };  
