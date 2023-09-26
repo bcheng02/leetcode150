@@ -10,12 +10,13 @@ var rotate = function(nums, k) {
 
  
     spliceIndex = numLen - k
-
+    
+    // splice works w/ negative numbers so long as arr[startIndex + arrSize] exists
     while (spliceIndex + numLen < 0) {
         spliceIndex += numLen
     }
 
-    // splice works w/ negative numbers so long as arr[startIndex + arrSize] exists
+
     let chunk = nums.splice(spliceIndex, k)
     let newArr = chunk.concat(nums)
     
