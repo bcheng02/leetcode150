@@ -24,9 +24,10 @@ var productExceptSelf = function(nums) {
     let ans = []
     for (let i = 0; i < len; i++) {
         let prePart = (pre[i - 1] !== undefined) ? pre[i - 1] : 1    // be careful since 0 is considered falsy
-        console.log(`pre: ${prePart}`)
         let postPart = (post[i + 1] !== undefined) ? post[i + 1] : 1 // be careful since 0 is considered falsy
-        console.log(`post: ${postPart}`)
+        
+        // console.log(`pre: ${prePart}`)
+        // console.log(`post: ${postPart}`)
 
         ans[i] = prePart * postPart
     }
