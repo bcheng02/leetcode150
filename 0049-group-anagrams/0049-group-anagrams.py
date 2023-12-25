@@ -1,16 +1,14 @@
-from collections import defaultdict
-
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        # declare a hashmap??
-        map = defaultdict(list) # this is already {x: [], y: []...}
+        myMap = {}
         
-        # sort each str, collect them in hashmap
-        for s in strs:
-            sortedStr = tuple(sorted(s)) # sorted ret list, but keys need to be immutable
-            map[sortedStr].append(s)
         
-        # return values of hashmap
+        for i, n in enumerate(strs):
+            sortedStr = ''.join(sorted(n))
+            if (sortedStr not in myMap):
+                myMap[sortedStr] = [n]
+            else:
+                myMap[sortedStr].append(n)
         
-        return map.values()
-        
+        return myMap.values()
+            
