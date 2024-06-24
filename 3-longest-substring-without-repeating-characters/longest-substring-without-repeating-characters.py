@@ -19,7 +19,7 @@ class Solution(object):
                 
                 start = end
                 while (s[end] != s[start - 1]):
-                    seen.add(s[start - 1])
+                    seen.add(s[start - 1])   # AHHHHHHHHHHHHHHHH
                     start -= 1
                 print(start)
                 maxLen = max(maxLen, end-start+1)
