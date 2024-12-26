@@ -1,18 +1,21 @@
 class Solution(object):
     def isPalindrome(self, s):
-        filtered = list(filter(lambda x: x.isalnum(), s))
-        filtered_lower = list(map(lambda x: x.lower(), filtered))
+        """
+        :type s: str
+        :rtype: bool
+        """
         
-        if filtered_lower == []: return True
+        newStr = ''
+        for c in s:
+            if (c.isalnum()):
+                newStr += c.lower()
         
-        # 2 pointers 
-        ptr1 = 0
-        ptr2 = len(filtered_lower) - 1
+        lptr = 0
+        rptr = len(newStr) - 1
         
-        while(ptr1 < ptr2):
-            if filtered_lower[ptr1] != filtered_lower[ptr2]:
+        while (lptr < rptr):
+            if (newStr[lptr] != newStr[rptr]):
                 return False
-            ptr1 += 1
-            ptr2 -= 1
-            
+            lptr += 1
+            rptr -= 1
         return True
