@@ -4,12 +4,12 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        newStr = ''.join(char.lower() for char in s if char.isalnum())
+        # newStr = ''.join(char.lower() for char in s if char.isalnum())
         
-        # newStr = ''
-        # for c in s:
-        #     if (c.isalnum()):
-        #         newStr += c.lower()
+        newStr = ''
+        for c in s:
+            if (c.isalnum()):
+                newStr += c.lower()
         
         lptr = 0
         rptr = len(newStr) - 1
