@@ -4,10 +4,18 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        newStr = ''
         
+        newStr = ''
         for c in s:
             if (c.isalnum()):
                 newStr += c.lower()
         
-        return newStr == newStr[::-1]
+        lptr = 0
+        rptr = len(newStr) - 1
+        
+        while (lptr < rptr):
+            if (newStr[lptr] != newStr[rptr]):
+                return False
+            lptr += 1
+            rptr -= 1
+        return True
