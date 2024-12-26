@@ -5,10 +5,17 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        # map = {}
-        # for char in s:
-        #     if (char not in map):
-        #         map[char] = 0
-        #     map[char] = map[char] += 1
         
-        return sorted(s) == sorted(t)
+        if (len(s) != len(t)): return False
+
+        sMap, tMap = {}, {}
+        for i in range(len(s)):
+            sMap[s[i]] = sMap.get(s[i], 0) + 1
+            tMap[t[i]] = tMap.get(t[i], 0) + 1
+
+        for char in s:
+            if (sMap[char] != tMap.get(char, 0)): return False
+
+        return True
+            
+        # return sorted(s) == sorted(t)
