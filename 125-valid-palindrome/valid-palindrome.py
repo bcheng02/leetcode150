@@ -5,10 +5,7 @@ class Solution(object):
         :rtype: bool
         """
         
-        newStr = ''
-        for c in s:
-            if (c.isalnum()):
-                newStr += c.lower()
+        newStr = ''.join(c.lower() for c in s if c.isalnum())
         
         lptr = 0
         rptr = len(newStr) - 1
