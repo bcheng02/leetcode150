@@ -7,20 +7,20 @@ class Solution(object):
         
         start = 0
         maxLen = 0
-        seen = set()
+        seen = {}
         
-        for end, item in enumerate(s):
-            if (item not in seen):
-                seen.add(item)
-                maxLen = max(maxLen, end-start+1)
-            else:
-                seen = set()
-                seen.add(item)
-                
+        for end, val in enumerate(s):
+            if (val in seen):
                 start = end
-                while (s[end] != s[start - 1]):
-                    seen.add(s[start - 1])   # AHHHHHHHHHHHHHHHH
+                seen.clear()
+                while(s[start - 1] != val):
+                    # print(s[start-1])
+                    seen[s[start-1]] = True
                     start -= 1
-                maxLen = max(maxLen, end-start+1)
-
+                seen[val] = True
+            else:
+                seen[val] = True
+                maxLen = max(maxLen, end - start + 1)
+            
         return maxLen
+        
