@@ -12,7 +12,7 @@ class Solution(object):
         for end, val in enumerate(s):
             if (val in seen):
                 while(val in seen):
-                    del seen[s[start]]
+                    del seen[s[start]] # can't just set to False since val in seen doesn't work
                     start += 1
                 seen[val] = True
             else:
