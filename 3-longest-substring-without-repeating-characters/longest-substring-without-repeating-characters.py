@@ -11,12 +11,9 @@ class Solution(object):
         
         for end, val in enumerate(s):
             if (val in seen):
-                start = end
-                seen.clear()
-                while(s[start - 1] != val):
-                    # print(s[start-1])
-                    seen[s[start-1]] = True
-                    start -= 1
+                while(val in seen):
+                    del seen[s[start]]
+                    start += 1
                 seen[val] = True
             else:
                 seen[val] = True
