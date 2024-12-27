@@ -1,15 +1,19 @@
-class Solution:
-    def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        ptr1 = 0
-        ptr2 = len(numbers) - 1
+class Solution(object):
+    def twoSum(self, numbers, target):
+        """
+        :type numbers: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        lptr, rptr = 0, len(numbers) - 1
         
-        while (ptr1 < ptr2):
-            sum = numbers[ptr1] + numbers[ptr2]
-            if sum < target:
-                ptr1 += 1
-            elif sum > target:
-                ptr2 -= 1
-            else: 
-                return [ptr1 + 1, ptr2 + 1]
+        while(lptr < rptr):
+            sum = numbers[lptr] + numbers[rptr]
             
-                
+            if (sum > target):
+                rptr -= 1
+            elif (sum < target):
+                lptr += 1
+            else:
+                return [lptr + 1, rptr + 1]
+        
