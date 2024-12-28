@@ -1,16 +1,19 @@
-class Solution:
-    def maxArea(self, height: List[int]) -> int:
-        maxArea = 0
-        ptr1 = 0
-        ptr2 = len(height) - 1
-        
-        while (ptr1 < ptr2):
-            currArea = (ptr2 - ptr1) * min(height[ptr1], height[ptr2])
-            maxArea = max(maxArea, currArea)
-            
-            if (height[ptr1] < height[ptr2]):
-                ptr1 += 1
+class Solution(object):
+    def maxArea(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        lptr, rptr = 0, len(height) - 1
+        maxWater = 0
+
+        while(lptr < rptr):
+            maxWater = max(maxWater, min(height[lptr], height[rptr]) * (rptr-lptr))
+            if (height[lptr] < height[rptr]):
+                lptr += 1
             else:
-                ptr2 -= 1
+                rptr -= 1
+
+        return maxWater
+                
         
-        return maxArea
