@@ -12,8 +12,6 @@ class Solution:
             if (i == len(nums) - 1): suffix[i] = nums[i]
             else: suffix[i] = nums[i] * suffix[i + 1]
         
-        print(prefix)
-        print(suffix)
         for i in range(len(nums)):
             if (i == 0):
                 ans.append(1 * suffix[i + 1])
